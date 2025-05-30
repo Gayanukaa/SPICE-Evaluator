@@ -119,7 +119,7 @@ with g1:
             filename="candidate_graph.html",
             title="Candidate",
         )
-        components.html(html1, height=550, scrolling=True)
+        components.html(html1, height=500, scrolling=True)
     else:
         st.warning("No candidate tuples to visualize.")
 
@@ -133,6 +133,6 @@ with g2:
             filename="reference_graph.html",
             title="Reference",
         )
-        components.html(html2, height=550, scrolling=True)
+        components.html(html2, height=500, scrolling=True)
     else:
         st.warning("No reference tuples to visualize.")
