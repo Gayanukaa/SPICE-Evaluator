@@ -2,6 +2,11 @@
 
 An interactive Streamlit application that combines the official SPICE metric with a conceptual scene-graph tuple visualizer. Evaluate your image captions end-to-end, inspect SPICE precision/recall/F₁, see live logs of the Java subprocess, and explore extracted (object–relation–object / object–attribute) scene-graph tuples as draggable force-directed graphs.
 
+## Reference
+
+P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositional Image Caption Evaluation,” _arXiv preprint arXiv:1607.08822_, Jul. 2016. [Online]. Available: https://arxiv.org/abs/1607.08822
+
+
 ## 🚀 Features
 
 - **SPICE Evaluation**
@@ -140,4 +145,4 @@ This produces detailed SPICE output (`stdout` and a JSON file).
 
 ## 📄 License
 
-This project is released under the [MIT License](LICENSE).
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
