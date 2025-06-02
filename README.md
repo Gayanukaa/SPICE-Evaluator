@@ -6,7 +6,6 @@ An interactive Streamlit application that combines the official SPICE metric wit
 
 P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositional Image Caption Evaluation,” _arXiv preprint arXiv:1607.08822_, Jul. 2016. [Online]. Available: https://arxiv.org/abs/1607.08822
 
-
 ## 🚀 Features
 
 - **SPICE Evaluation**
@@ -25,14 +24,13 @@ spice/
 ┣ SPICE-1.0/
 ┃ ┣ lib/                           ← SPICE’s dependencies
 ┃ ┣ spice-1.0.jar
-┃ ┗ get\_stanford\_models.sh
+┃ ┗ get_stanford_models.sh
 ┣ lib/                             ← Frontend JS/CSS assets (tom-select, vis-network)
-┣ spice\_cache/                     ← Temp files: JSON in/out, HTML graphs, LMDB
-┣ scene\_graph\_visualizer.py        ← PyVis graph-builder
+┣ spice_cache                      ← Temp files: JSON in/out, HTML graphs, LMDB
+┣ scene_graph_visualizer.py        ← PyVis graph-builder
 ┣ evaluator.py                     ← SPICE invocation + tuple extraction + WordNet matching
 ┣ app.py                           ← Streamlit frontend
 ┣ requirements.txt                 ← Python dependencies
-┗ README.md                        ← This file
 ```
 
 ## 🛠️ Getting Started
@@ -137,11 +135,7 @@ This produces detailed SPICE output (`stdout` and a JSON file).
 
 ## 🤝 Contributing
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature-xxx`)
-3. Commit your changes (`git commit -m "Add new feature"`)
-4. Push to your fork (`git push origin feature-xxx`)
-5. Open a Pull Request
+Open to contributions. Feel free to fork the repo, create a feature branch, commit your changes, push to your fork, and open a Pull Request.
 
 ## 📄 License
 
