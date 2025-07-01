@@ -4,19 +4,39 @@ import streamlit as st
 import streamlit.components.v1 as components
 from evaluator import SpiceEvaluator
 from scene_graph_visualizer import make_pyvis
+from spice_downloader import ensure_spice_files, check_spice_availability
 
 st.set_page_config(page_title="SPICE Eval Dashboard", layout="wide")
+
+# Check SPICE availability
+spice_available = check_spice_availability()
+
+if not spice_available:
+    # Try to ensure SPICE files are available
+    spice_available = ensure_spice_files()
+
 st.title("🎯 SPICE & Scene-Graph Evaluation")
 
 # Summary
-st.markdown(
-    """
-This dashboard provides an interactive way to evaluate image captions through:
+if spice_available:
+    st.markdown(
+        """
+    This dashboard provides an interactive way to evaluate image captions through:
 
-- **SPICE Evaluation**: Invokes the SPICE-1.0 Java jar to compute official precision, recall, and F₁.
-- **Interactive Scene Graphs**: Visualizes the extracted tuples as force-directed graphs.
-"""
-)
+    - **SPICE Evaluation**: Invokes the SPICE-1.0 Java jar to compute official precision, recall, and F₁.
+    - **Interactive Scene Graphs**: Visualizes the extracted tuples as force-directed graphs.
+    """
+    )
+else:
+    st.warning("⚠️ Running in Demo Mode - SPICE evaluation unavailable")
+    st.markdown(
+        """
+    This dashboard provides scene graph visualization for image captions:
+
+    - **Interactive Scene Graphs**: Visualizes the extracted tuples as force-directed graphs.
+    - **SPICE Evaluation**: Currently unavailable (see instructions below to enable)
+    """
+    )
 
 # Sidebar Inputs
 st.sidebar.header("Caption Inputs")
@@ -86,13 +106,29 @@ def log_fn(msg: str):
 
 
 evaluator = SpiceEvaluator()
-out = evaluator.evaluate(candidate, refs, log_fn=log_fn)
 
-st.subheader("📊 Evaluation Results")
-c3, c1, c2 = st.columns(3)
-c1.metric("Precision", f"{out['spice_precision']:.3f}")
-c2.metric("Recall", f"{out['spice_recall']:.3f}")
-c3.metric("F₁-Score", f"{out['spice_f1']:.3f}")
+if spice_available:
+    # Full evaluation with SPICE
+    out = evaluator.evaluate(candidate, refs, log_fn=log_fn)
+
+    st.subheader("📊 Evaluation Results")
+    c3, c1, c2 = st.columns(3)
+    c1.metric("Precision", f"{out['spice_precision']:.3f}")
+    c2.metric("Recall", f"{out['spice_recall']:.3f}")
+    c3.metric("F₁-Score", f"{out['spice_f1']:.3f}")
+else:
+    # Demo mode - show scene graphs only
+    st.subheader("📊 Demo Mode - Scene Graph Visualization Only")
+    st.info("SPICE evaluation scores are not available. Scene graphs are generated using basic parsing.")
+
+    # Create mock output for visualization
+    out = {
+        'spice_precision': 0.0,
+        'spice_recall': 0.0,
+        'spice_f1': 0.0,
+        'test_tuples': [],  # Will be populated by scene graph processing
+        'ref_tuples': []
+    }
 
 cand_exp = st.expander("View Extracted Tuples (Candidate)", expanded=False)
 with cand_exp:
