@@ -13,22 +13,8 @@ SPICE_JAR = os.path.join(BASE_DIR, "SPICE-1.0", "spice-1.0.jar")
 
 
 def _run_spice(input_json: str, output_json: str, detailed: bool, log_fn=None) -> dict:
-    # Check if SPICE is available, download if needed
     if not os.path.isfile(SPICE_JAR):
-        try:
-            from spice_downloader import check_spice_availability
-            if not check_spice_availability():
-                # Return demo/mock results if SPICE is not available
-                if log_fn:
-                    log_fn("⚠️ SPICE not available - running in demo mode")
-                return {
-                    "scores": {"All": {"pr": 0.0, "re": 0.0, "f": 0.0}},
-                    "test_tuples": [],
-                    "ref_tuples": []
-                }
-        except ImportError:
-            # If streamlit is not available (e.g., in local environment)
-            raise FileNotFoundError(f"SPICE jar not found at {SPICE_JAR}")
+        raise FileNotFoundError(f"SPICE jar not found at {SPICE_JAR}")
 
     cmd = ["java", "-Xmx8G", "-jar", SPICE_JAR, input_json]
     if detailed:
