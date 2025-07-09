@@ -41,7 +41,6 @@ Follow these steps to set up and run the dashboard locally.
 
 - **Java 8+** (to run the SPICE JAR)
 - **Conda** or **Miniconda**
-- **Git**
 
 On Debian/Ubuntu you may need:
 
@@ -53,7 +52,7 @@ sudo apt install -y default-jre unzip
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/Gayanukaa/VLM-Playground.git
+https://github.com/Gayanukaa/SPICE-Evaluator.git
 cd experiments/spice/
 ```
 
