@@ -4,7 +4,7 @@ An interactive Streamlit application that combines the official SPICE metric wit
 
 ## Reference
 
-P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositional Image Caption Evaluation,” _arXiv preprint arXiv:1607.08822_, Jul. 2016. [Online]. Available: https://arxiv.org/abs/1607.08822
+P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositional Image Caption Evaluation,” _arXiv preprint arXiv:1607.08822_, Jul. 2016.
 
 ## Features
 
