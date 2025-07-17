@@ -6,7 +6,7 @@ An interactive Streamlit application that combines the official SPICE metric wit
 
 P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositional Image Caption Evaluation,” _arXiv preprint arXiv:1607.08822_, Jul. 2016. [Online]. Available: https://arxiv.org/abs/1607.08822
 
-## 🚀 Features
+## Features
 
 - **SPICE Evaluation**
   Invokes the SPICE-1.0 Java JAR in “detailed” mode to compute the official SPICE metric (precision, recall, F₁).
@@ -17,7 +17,7 @@ P. Anderson, B. Fernando, M. Johnson, and S. Gould, “SPICE: Semantic Propositi
 - **Extracted Tuple Preview**
   View simplified lists of extracted tuples (candidate & references) in collapsible code blocks.
 
-## 📦 Repository Structure
+## Repository Structure
 
 ```
 spice/
@@ -33,7 +33,7 @@ spice/
 ┣ requirements.txt                 ← Python dependencies
 ```
 
-## 🛠️ Getting Started
+## 🛠Getting Started
 
 Follow these steps to set up and run the dashboard locally.
 
@@ -86,7 +86,7 @@ conda activate env
 pip install -r requirements.txt
 ```
 
-## ▶️ Running the Dashboard
+## Running the Dashboard
 
 From the project root:
 
@@ -96,7 +96,7 @@ streamlit run app.py
 
 The app will open in your browser (usually at `http://localhost:8501`). Enter your **Candidate Caption** and one or more **Reference Captions** in the sidebar, then click **Evaluate**.
 
-## 🧪 Manual SPICE Testing
+## Manual SPICE Testing
 
 If you want to test SPICE outside of Streamlit, you can run:
 
@@ -109,7 +109,7 @@ java -Xmx8G \
 
 This produces detailed SPICE output (`stdout` and a JSON file).
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 - **SPICE JAR not found**
   Ensure `SPICE-1.0/spice-1.0.jar` exists and is executable.
@@ -132,10 +132,10 @@ This produces detailed SPICE output (`stdout` and a JSON file).
 - **PyVis graphs not rendering**
   Ensure your network allows CDN loading, or switch `cdn_resources='local'` / `remote` in `scene_graph_visualizer.py`.
 
-## 🤝 Contributing
+## Contributing
 
 Open to contributions. Feel free to fork the repo, create a feature branch, commit your changes, push to your fork, and open a Pull Request.
 
-## 📄 License
+## License
 
 This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
