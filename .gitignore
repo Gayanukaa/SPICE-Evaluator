@@ -13,6 +13,7 @@ mypy.ini
 lib/
 spice_cache/
 SPICE-1.0/
+article/
 
 # Distribution / packaging
 .Python
